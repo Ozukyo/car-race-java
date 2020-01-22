@@ -1,21 +1,14 @@
 import java.util.Random;
 
-public class Car {
-    private int normalSpeed;
-    private int actualSpeed;
-    private int distanceTraveled = 0;
-    private String name;
+public class Car extends Vehicle{
+    private int normalSpeed = 0;
 
     public Car() {
         this.name = generateRandomName();
         normalSpeed = getRandomSpeed();
-        actualSpeed = 0;
     }
 
-    public void moveForAnHour() {
-        distanceTraveled += actualSpeed;
-    }
-
+    @Override
     public void prepareForLap(Race race) {
         if(race.isThereABrokenTruck()) {
             actualSpeed = 75;
@@ -25,21 +18,9 @@ public class Car {
         }
     }
 
-    public int getSpeed() {
-        normalSpeed = getRandomSpeed();
-        return normalSpeed;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String speedToString() {
-        return normalSpeed + "km\\h";
-    }
-
-    public int getDistanceTraveled() {
-        return distanceTraveled;
+    @Override
+    public String getType() {
+        return "Car";
     }
 
     private String generateRandomName() {
