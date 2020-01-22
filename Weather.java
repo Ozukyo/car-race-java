@@ -13,7 +13,7 @@ public class Weather {
         
     }
 
-    public boolean isRaining() {
+    public boolean getRaining() {
         return raining;
     }
 
